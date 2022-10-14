@@ -1,0 +1,90 @@
+definitions:
+  handler.Response:
+    properties:
+      us_apellido:
+        type: string
+      us_correo:
+        type: string
+      us_eliminado:
+        type: boolean
+      us_esactivo:
+        type: boolean
+      us_fecharegistro:
+        type: string
+      us_id:
+        type: integer
+      us_nombre:
+        type: string
+      us_usuario:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/users:
+    get:
+      description: Get all users
+      operationId: FindAll
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handler.Response'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: Get all users
+      tags:
+      - users
+  /api/v1/auth/login:
+    post:
+      description: login users
+      operationId: login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handler.Response'
+            type: array
+      summary: login users
+      tags:
+      - auth
+  /api/v1/auth/refresh-token:
+    post:
+      description: refresh-token users
+      operationId: refresh-token
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handler.Response'
+            type: array
+      summary: refresh-token users
+      tags:
+      - auth
+  /api/v1/auth/signUp:
+    post:
+      description: SignUp users
+      operationId: SignUp
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handler.Response'
+            type: array
+      summary: SignUp users
+      tags:
+      - auth
+swagger: "2.0"
